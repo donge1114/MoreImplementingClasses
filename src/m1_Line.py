@@ -229,6 +229,8 @@ class Line(object):
         self.start = start.clone()
         self.end = end.clone()
         self.count_clone = 0
+        self.begin_start = self.start.clone()
+        self.begin_end = self.end.clone()
 
     def __repr__(self):
         """
@@ -629,7 +631,7 @@ class Line(object):
           :rtype: bool
         """
         # --------------------------------------------------------------
-        # TODO: 12.
+        # DONE: 12.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -703,6 +705,9 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        self.start = self.begin_start
+        self.end = self.begin_end
+        return Line(self.start, self.end)
 
 
 ########################################################################
