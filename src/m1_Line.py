@@ -90,6 +90,7 @@ class Point(object):
         self.x = x
         self.y = y
 
+
     def __repr__(self):
         """
         Returns a string representation of this Point.
@@ -227,6 +228,7 @@ class Line(object):
         # --------------------------------------------------------------
         self.start = start.clone()
         self.end = end.clone()
+        self.count_clone = 0
 
     def __repr__(self):
         """
@@ -327,6 +329,7 @@ class Line(object):
         Type hints:
           :rtype: Line
         """
+        self.count_clone += 1
         return Line(self.start.clone(), self.end.clone())
         # --------------------------------------------------------------
         # DONE: 4.
@@ -492,6 +495,7 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        return self.count_clone
 
     def line_plus(self, other_line):
         """
