@@ -327,10 +327,11 @@ class Line(object):
         Type hints:
           :rtype: Line
         """
+        return Line(self.start.clone(), self.end.clone())
         # --------------------------------------------------------------
-        # TODO: 4.
+        # DONE: 4.
         #   a. READ the above specification, including the Example.
-        #        ** ASK QUESTIONS AS NEEDED. **
+        #        ** ASK QUESTIONS AS NEEDED.. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
         #   b. Implement and test this method.
         #        The tests are already written (below).
@@ -369,6 +370,10 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        value = self.start
+        self.start = self.end
+        self.end = value
+        return Line(self.start, self.end)
 
     def slope(self):
         """
@@ -405,6 +410,13 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        if (self.end.x - self.start.x == 0):
+            return math.inf
+        else:
+            slope = (self.end.y - self.start.y)/(self.end.x - self.start.x)
+            return slope
+
+
 
     def length(self):
         """
