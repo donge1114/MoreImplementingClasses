@@ -598,6 +598,9 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        mx = (self.start.x + self.end.x)/2
+        my = (self.start.y + self.end.y)/2
+        return Point(mx, my)
 
     def is_parallel(self, line2):
         """
